@@ -3,7 +3,7 @@ import App from "../App";
 import About from "../pages/about";
 import Contact from "../pages/contact";
 
-import { adminPaths } from "./admin.routes";
+import {  adminRoutes } from "./admin.routes";
 
 const router = createBrowserRouter([
     {
@@ -13,17 +13,17 @@ const router = createBrowserRouter([
     {
         path: '/admin',
         element: <App />,
-        children: adminPaths,
+        children: adminRoutes,
     },
     {
         path: '/faculty',
         element: <App />,
-        children: adminPaths,
+        children: adminRoutes,
     },
     {
         path: '/student',
         element: <App />,
-        children: adminPaths,
+        children: adminRoutes,
     },
 ]);
 
