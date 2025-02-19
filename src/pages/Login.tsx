@@ -7,15 +7,16 @@ import { setUser, TUser } from '../redux/features/auth/authSlice';
 import { verifyToken } from '../utils/verifyToken';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import PHFrom from '../components/form/PHFrom';
 
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { register, handleSubmit } = useForm();
 
-    const [login, ] = useLoginMutation();
+    const [login,] = useLoginMutation();
 
-    const onsubmit = async (data:FieldValues) => {
+    const onsubmit = async (data: FieldValues) => {
         const toastId = toast.loading('Loading in')
         try {
             const userInfo = {
@@ -33,7 +34,7 @@ const Login = () => {
         }
     }
     return (
-        <form onSubmit={handleSubmit(onsubmit)}>
+        <PHFrom onSubmit={onsubmit}>
             <div>
                 <label htmlFor="id">ID</label>
                 <input type="text" id='id' {...register('id')} />
@@ -43,7 +44,7 @@ const Login = () => {
                 <input type="text" id='password' {...register('password')} />
             </div>
             <Button htmlType='submit'>Login</Button>
-        </form>
+        </PHFrom>
     );
 };
 
