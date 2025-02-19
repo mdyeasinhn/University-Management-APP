@@ -1,12 +1,14 @@
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 
-const PHFrom = ({onSubmit, children}) => {
+const PHFrom = ({ onSubmit, children }) => {
 
-    const {handleSubmit} = useForm();
+    const methods = useForm();
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            {children}
-        </form>
+        <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+                {children}
+            </form>
+        </FormProvider>
     );
 };
 
